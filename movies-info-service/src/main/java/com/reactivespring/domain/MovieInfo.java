@@ -2,6 +2,7 @@ package com.reactivespring.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -18,7 +19,7 @@ public class MovieInfo {
     @Id
     private String movieInfoId;
     private String name;
-    private String year;
+    private Integer year;
     private List<String> cast;
     private LocalDate releaseDate;
 
