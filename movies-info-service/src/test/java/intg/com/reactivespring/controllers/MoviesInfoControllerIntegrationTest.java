@@ -153,6 +153,47 @@ class MoviesInfoControllerIntegrationTest {
                 .hasSize(2);
     }
 
+    @Test
+    void updateMovieById_not_found() {
+        var movieInfoId = "def";
+        var movieInfo = new MovieInfo(null, "Batman Begins2",
+                2005, List.of("Christian Bale", "Michael Cane"), LocalDate.parse("2005-06-15"));
+        // Getting movie info by id
+        webTestClient
+                .put()
+                .uri(MOVIE_INFO_ENDPOINT + "/{id}", movieInfoId)
+                .bodyValue(movieInfo)
+                .exchange()
+                .expectStatus()
+                .isNotFound();
+//                .expectBody(MovieInfo.class)
+//                .consumeWith(movieInfoEntityExchangeResult -> {
+//                    var responseBody = movieInfoEntityExchangeResult.getResponseBody();
+//                    assert responseBody != null;
+//                    assert responseBody.getName().equals("Batman Begins2");
+//                });
+    }
+
+    @Test
+    void getmoviebyid_notfound() {
+        var movieInfoId = "def";
+        webTestClient
+                .get()
+                .uri(MOVIE_INFO_ENDPOINT + "/{id}", movieInfoId)
+                .exchange()
+                .expectStatus()
+                .isNotFound();
+                // Approach 1
+//                .expectBody()
+//                .jsonPath("$.name").isEqualTo("Dark Knight Rises");
+        // Approach 2
+//                .expectBody(MovieInfo.class)
+//                .consumeWith(movieInfoEntityExchangeResult -> {
+//                    var responseBody = movieInfoEntityExchangeResult.getResponseBody();
+//                    assert responseBody != null;
+//                });
+    }
+
 
     @AfterEach
     void tearDown() {
