@@ -20,7 +20,7 @@ import java.util.List;
 @ActiveProfiles("test")
 @TestPropertySource(properties = "spring.mongodb.embedded.version=3.5.5")
 @AutoConfigureWebTestClient
-class MoviesInfoControllerTest {
+class MoviesInfoControllerIntegrationTest {
 
     @Autowired
     MovieInfoRepository movieInfoRepository;

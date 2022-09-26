@@ -7,3 +7,6 @@
 
 ## flatMapMap in Mono
 -
+
+## Unit Test
+- Unit test is a kind of test which tests only the class and method of interest and mocks the next layer of the oode.
